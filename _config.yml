@@ -1,33 +1,42 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
 title: Curtis Li
 email: curtis.li@nyu.edu
-description: > # this means to ignore newlines until "baseurl:"
+keywords: curtis li resume software engineer programmer
+description: >
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://www.curtis-li.com" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: ""
+url: "http://www.curtis-li.com"
 github_username:  cuhtis
+source_link: "https://github.com/cuhtis/cuhtis.github.io"
+favicon:
+touch_icon:
+google_analytics_key:
+
 
 # Build settings
+port: 4000
+host: 0.0.0.0
+safe: false
+exclude: [CNAME, README.md, .gitignore]
+permalink: / ## disables post output
+timezone: null
+lsi: false
 markdown: kramdown
-theme: minima
 gems:
   - jekyll-feed
 exclude:
   - Gemfile
   - Gemfile.lock
+
+kramdown:
+  auto_ids:  false
+
+colors:
+  black:     '#111111'
+  white:     '#f8f8f8'
+  blue:      '#49a7e9'
+  green:     '#9bcf2f'
+  purple:    '#c869bf'
+  orange:    '#fab125'
+  turquoise: '#0fbfcf'
