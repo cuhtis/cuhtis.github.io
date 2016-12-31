@@ -1,2 +1,2 @@
-# curtis99877.github.io
+# cuhtis.github.io
 Personal Website
