@@ -1,37 +1,33 @@
-title: Curtis Li
-email: curtis.li@nyu.edu
-keywords: curtis li resume software engineer programmer
+---
+
+# Basics
+port: 4000
+host: 0.0.0.0
+safe: false
+
+# Build settings
+exclude: [CNAME, README.md, .gitignore]
+permalink: /:title ## disables post output
+timezone: null
+lsi: false
+markdown: kramdown
+
+# Content
+title: "Curtis Li"
+email: "curtis.li@nyu.edu"
+keywords: "curtis li resume software engineer programmer"
 description: >
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-baseurl: ""
 url: "http://www.curtis-li.com"
-github_username:  cuhtis
+github_username:  "cuhtis"
 source_link: "https://github.com/cuhtis/cuhtis.github.io"
-favicon:
-touch_icon:
-google_analytics_key:
+favicon: ""
+touch_icon: ""
+google_analytics_key: ""
 
-
-# Build settings
-port: 4000
-host: 0.0.0.0
-safe: false
-exclude: [CNAME, README.md, .gitignore]
-permalink: / ## disables post output
-timezone: null
-lsi: false
-markdown: kramdown
-gems:
-  - jekyll-feed
-exclude:
-  - Gemfile
-  - Gemfile.lock
-
-kramdown:
-  auto_ids:  false
-
+# Template
 colors:
   black:     '#111111'
   white:     '#f8f8f8'
@@ -40,3 +36,6 @@ colors:
   purple:    '#c869bf'
   orange:    '#fab125'
   turquoise: '#0fbfcf'
+
+kramdown:
+  auto_ids:  false
