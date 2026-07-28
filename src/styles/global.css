@@ -141,15 +141,44 @@ a {
 }
 
 .hero {
-  display: flex;
+  display: grid;
   min-height: min(760px, 100svh);
+  grid-template-columns: minmax(0, 1fr) clamp(250px, 27vw, 340px);
   align-items: center;
+  gap: clamp(3rem, 7vw, 7rem);
   padding-top: 11rem;
   padding-bottom: 4rem;
 }
 
 .hero-copy {
-  width: min(760px, 76%);
+  min-width: 0;
+  width: 100%;
+}
+
+.hero-portrait {
+  width: 100%;
+  margin: 0;
+}
+
+.hero-portrait-desktop {
+  align-self: start;
+  transform: translateX(clamp(-7.5rem, -8vw, -3rem));
+}
+
+.hero-portrait-mobile {
+  display: none;
+}
+
+.hero-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border: 1px solid rgb(31 35 40 / 12%);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 43%;
+  box-shadow: 0 1.5rem 4rem rgb(31 35 40 / 12%);
 }
 
 .hero h1 {
@@ -479,6 +508,8 @@ a {
 
   .hero {
     min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 3.25rem;
     padding-top: 11rem;
     padding-bottom: 5rem;
   }
@@ -493,6 +524,20 @@ a {
 
   .hero h1 span {
     display: block;
+  }
+
+  .hero-portrait {
+    width: min(72vw, 280px);
+    justify-self: center;
+  }
+
+  .hero-portrait-desktop {
+    display: none;
+  }
+
+  .hero-portrait-mobile {
+    display: block;
+    margin: 2.5rem auto 0;
   }
 
   .hero-lede {
