@@ -1,0 +1,77 @@
+---
+import Icon from "./Icon.astro";
+import { navigation } from "../data/site";
+---
+
+<header class="site-header" data-header>
+  <div class="shell header-inner">
+    <a class="wordmark" href="#top" aria-label="Curtis Li, back to top">Curtis Li</a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      {
+        navigation.map((item) => (
+          <a href={item.href}>{item.label}</a>
+        ))
+      }
+      <a class="resume-link" href="/resume.pdf" download>Resume</a>
+    </nav>
+
+    <button
+      class="menu-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="mobile-navigation"
+      aria-label="Open navigation"
+      data-menu-toggle
+    >
+      <span data-menu-open><Icon name="menu" size={22} /></span>
+      <span data-menu-close hidden><Icon name="close" size={22} /></span>
+    </button>
+  </div>
+
+  <nav id="mobile-navigation" class="mobile-nav shell" aria-label="Mobile navigation" hidden>
+    {
+      navigation.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))
+    }
+    <a href="/resume.pdf" download>Download resume</a>
+  </nav>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>("[data-header]");
+  const toggle = document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const menu = document.querySelector<HTMLElement>("#mobile-navigation");
+  const openIcon = document.querySelector<HTMLElement>("[data-menu-open]");
+  const closeIcon = document.querySelector<HTMLElement>("[data-menu-close]");
+
+  const setMenu = (open: boolean) => {
+    if (!toggle || !menu || !openIcon || !closeIcon) return;
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+    menu.hidden = !open;
+    openIcon.hidden = open;
+    closeIcon.hidden = !open;
+    document.body.classList.toggle("menu-open", open);
+  };
+
+  toggle?.addEventListener("click", () => {
+    setMenu(toggle.getAttribute("aria-expanded") !== "true");
+  });
+
+  menu?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setMenu(false));
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && toggle?.getAttribute("aria-expanded") === "true") {
+      setMenu(false);
+      toggle.focus();
+    }
+  });
+
+  const updateHeader = () => header?.classList.toggle("is-scrolled", window.scrollY > 16);
+  updateHeader();
+  window.addEventListener("scroll", updateHeader, { passive: true });
+</script>

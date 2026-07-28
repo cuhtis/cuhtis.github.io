@@ -1,0 +1,99 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SocialLinks from "../components/SocialLinks.astro";
+import ExperienceTimeline from "../components/ExperienceTimeline.astro";
+import Icon from "../components/Icon.astro";
+import { education, navigation } from "../data/site";
+
+const title = "Curtis Li — Software Engineer";
+const description =
+  "Curtis Li is a software engineer with a background in systems design and computer science.";
+---
+
+<BaseLayout {title} {description}>
+  <SiteHeader />
+
+  <main id="main-content">
+    <section id="top" class="hero shell" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">I’m <span>Curtis.</span></h1>
+        <p class="hero-lede">Software engineer focused on thoughtful systems and useful products.</p>
+        <p class="hero-support">
+          I care about reliable systems, clear abstractions, and software that earns its place in
+          people’s lives.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#experience">
+            View experience
+            <Icon name="arrow" />
+          </a>
+          <a class="button button-secondary" href="/resume.pdf" download>
+            Download resume
+            <Icon name="download" />
+          </a>
+        </div>
+        <SocialLinks />
+      </div>
+    </section>
+
+    <div class="content-sections shell">
+      <section id="about" class="section-grid" aria-labelledby="about-title">
+        <h2 id="about-title">About</h2>
+        <div class="section-copy">
+          <p>
+            I’m passionate about systems design and development, with a computer science background
+            from New York University.
+          </p>
+          <p>
+            I enjoy turning complex problems into dependable, understandable software.
+          </p>
+        </div>
+      </section>
+
+      <section id="experience" class="section-grid" aria-labelledby="experience-title">
+        <h2 id="experience-title">Experience</h2>
+        <ExperienceTimeline />
+      </section>
+
+      <section id="education" class="section-grid" aria-labelledby="education-title">
+        <div>
+          <h2 id="education-title">Education</h2>
+          <p class="section-date">{education.date}</p>
+        </div>
+        <div class="education-content">
+          <h3>{education.institution}</h3>
+          <p class="degree">{education.degree}</p>
+          <ul>
+            {education.details.map((detail) => <li>{detail}</li>)}
+          </ul>
+        </div>
+      </section>
+
+      <section id="contact" class="section-grid" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+        <div class="section-copy">
+          <p>Interested in connecting? The simplest way to reach me is by email.</p>
+          <p>
+            <a class="email-address" href="mailto:curtis.li@nyu.edu">curtis.li@nyu.edu</a>
+          </p>
+          <a class="text-link" href="mailto:curtis.li@nyu.edu">
+            Send an email
+            <Icon name="arrow" />
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer shell">
+    <div>
+      <p class="footer-name">Curtis Li</p>
+      <p>© {new Date().getFullYear()} Curtis Li</p>
+    </div>
+    <nav aria-label="Footer navigation">
+      {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
+      <a href="/resume.pdf" download>Resume</a>
+    </nav>
+  </footer>
+</BaseLayout>

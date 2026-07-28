@@ -1,0 +1,17 @@
+---
+import Icon from "./Icon.astro";
+import { socialLinks } from "../data/site";
+---
+
+<ul class="social-links" aria-label="Social links">
+  {
+    socialLinks.map((link) => (
+      <li>
+        <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel="me noopener">
+          <Icon name={link.icon} />
+          <span>{link.label}</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>

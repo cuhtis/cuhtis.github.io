@@ -1,0 +1,18 @@
+---
+import { experience } from "../data/site";
+---
+
+<ol class="timeline">
+  {
+    experience.map((item) => (
+      <li class="timeline-item">
+        <p class="timeline-date">{item.date}</p>
+        <span class="timeline-marker" aria-hidden="true" />
+        <div class="timeline-content">
+          <h3>{item.role}</h3>
+          <p>{item.organization}</p>
+        </div>
+      </li>
+    ))
+  }
+</ol>
