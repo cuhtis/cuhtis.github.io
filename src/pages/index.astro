@@ -37,10 +37,6 @@ const description =
             View experience
             <Icon name="arrow" />
           </a>
-          <a class="button button-secondary" href="/resume.pdf" download>
-            Download resume
-            <Icon name="download" />
-          </a>
         </div>
         <SocialLinks />
       </div>
@@ -112,7 +108,6 @@ const description =
     </div>
     <nav aria-label="Footer navigation">
       {navigation.map((item) => <a href={item.href}>{item.label}</a>)}
-      <a href="/resume.pdf" download>Resume</a>
     </nav>
   </footer>
 </BaseLayout>
