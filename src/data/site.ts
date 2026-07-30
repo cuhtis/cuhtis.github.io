@@ -18,7 +18,7 @@ export const socialLinks = [
   },
   {
     label: "Email",
-    href: "mailto:curtis.li@nyu.edu",
+    href: "mailto:curtis99877@gmail.com",
     icon: "email"
   }
 ] as const;
@@ -30,7 +30,7 @@ export const experience = [
     date: "July 2017 — Present"
   },
   {
-    role: "Software Engineering Intern",
+    role: "Software Engineer",
     organization: "NimbleDroid, Inc.",
     date: "May 2016 — September 2016"
   },
